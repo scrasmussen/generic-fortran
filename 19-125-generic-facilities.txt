@@ -1,3 +1,5 @@
+URL: https://j3-fortran.org/doc/year/19/19-125.txt
+
 To: J3                                                     J3/19-125
 From: Tom Clune
 Subject: Analysis of generic facilities for containers
@@ -154,7 +156,7 @@ additional work:
          GENERIC TYPE(T) => TYPE(this)
          CLASS (T), INTENT(IN) :: this
       END INTEGER FUNCTION
-      
+
 
 Ultimately the more fundamental issue is simply that, at least for the
 containers use case, the mechanism is simply not friendly to object
@@ -212,5 +214,3 @@ parameterized module paper would be some way to restrict the TYPE
 template parameters to be from some specific set of TYPE's.  E.g. only
 allow extensions of a base type, or from a list of specified types.  A
 common use case could be to restrict a TYPE parameter to be NUMERIC.
-
-
