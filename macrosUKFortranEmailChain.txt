@@ -1,0 +1,489 @@
+-------- Forwarded Message --------
+From: Malcolm Cohen <malcolm@nag-j.co.jp>
+To: ukfortran@lists.accu.org, 'FSG Members List' <
+fortranmem@lists.bcs.org.uk>
+Subject: [ukfortran] Generic programming, was RE:  UK requirements for=20
+Fortran 202x
+Date: Tue, 21 May 2019 14:09:56 +0900
+
+I can't post to the BCS list.  If someone who is a BCS member wants to
+post my words there, be my guest.
+
+*****
+
+Templates are way too complicated.  This is not a small feature.  It is
+bigger than our existing OO feature.  With macros, they have only a
+very localised effect on the standard and similarly for
+implementations.
+
+For templates there is a whole parallel grammar needed, with 90% of the
+constraints deleted, as inside the template things have undiscernible
+type etc.  I am sure that virtually none of my colleagues on the
+standards committees have any realisation of the complications involved
+at the mere standards level.
+
+Fortran 2003's grossly overambitious feature list has already done huge
+damage to Fortran standardisation.  A compiler vendor in private
+communication confided that they had no intention of conforming to the
+Fortran standard (they are missing tons of features already!).
+
+Templates would drive the final stake through the heart of Fortran
+standardisation.
+
+As project editor, I take the wording of the standard
+seriously.  Perhaps a majority on the committees would not care so much
+if the standard were contradictory ambiguous nonsense, on the grounds
+that "we all know what we mean", but it is not something I can accept.
+
+As for "macros seem very clunky", well, they're macros.  Macros aren't
+pretty and glamourous like templates, but they are simple to define and
+simple to implement.  They're better than templates at some things, and
+worse at others, but overall serve pretty much equally well at
+providing generic programming functionality.
+
+ASIDE: The C++ guys don't just use templates you know, they also have
+macros built in to their language.  Our macros are simultaneously more
+limited and more capable than C/C++ ones, as ours were designed to be
+safer to use and to support generic programming.
+
+Also, we have a workable rigorous definition of macros, from
+immediately before they were ripped from Fortran 2008.  We do not have
+agreement on what templates should look like or how they should work,
+let alone normative text.
+
+At the last meeting /DATA subgroup did come to agreement on some minor
+features that are useful in generic programming of any form (including
+some of the forms we can do today).
+
+I agree that the gap between revisions is too small to do
+templates.  Extending the schedule is (IMO) not workable as that would
+open the door to lots of other features, and we'd end up with a big
+revision again.  That would not advance Fortran portability, quite the
+reverse.  Besides which, people want to see something positive soon.
+
+Macros plus the J3-agreed minor extensions for generics would, I think,
+be doable, even within the current schedule (or with minimal
+slippage).  Certainly that is the upper limit on feature complexity
+that I am willing to stomach.
+
+There are other worthwhile features which the UK could
+pursue.  Conditional expressions were proposed before, and failed at
+least partly because there were too many big features already being
+considered; it would perhaps be worthwhile dusting that proposal off
+and putting it forward again.  IF and only IF, we do not do even macros
+for generics, conditional expressions would be a good idea.  (Well,
+they are a good idea anyway, but there is a limit to the workload that
+we should impose not just on ourselves but the wider
+community.)  Actually conditional expressions are not necessarily
+hugely complicated, but they are neither trivial nor
+uncontroversial.  [But I'm leading myself astray from the topic, which
+really was generic programming.]
+
+Cheers,
+--=20
+..............Malcolm Cohen, NAG Oxford/Tokyo.
+
+-----Original Message-----
+From: John Reid <John.Reid@stfc.ac.uk>=20
+Sent: Tuesday, May 21, 2019 12:16 AM
+Cc: ukfortran@lists.accu.org; FSG Members List <
+fortranmem@lists.bcs.org.uk>
+Subject: Re: [ukfortran] UK requirements for Fortran 202x
+
+Dear all,
+
+Anton Shterenlikht wrote:
+> I don't have a strong opinion,
+> but want to note a lack of progress
+> on the 2 big features:
+>=20
+> >   US24. Generics / templates / macros / containers for generic
+> >         programming. (m217: 18-281r1, uc (templates)), and (m218:
+> > 18-154
+> >         (macros)).
+
+You meant 19-154. I have to say that I much prefer templates, as
+proposed in 18-281r1. The macros seem very clunky (see the examples in
+19-154).
+
+> >   US25: Exceptions. Discussions continue on the J3 email list.
+> > (m218:
+> >         19-133r2)
+>=20
+> Even 18-281r1, passed with UC, is not much more than an idea.
+> It passed with UC probably because there is no obligation there to=20
+> implement anything.
+>=20
+> To me this means that there is really no agreement on what the=20
+> facility should do, nevermind how it should be implemented. This is=20
+> after a year of discussions.
+>=20
+> I think I've seen some dissenting opinions in J3 list (I think Tom=20
+> Clune, NASA).
+
+No-one is speaking up for exceptions. I worked on these in the run-up
+to F95. It was not easy and I ended up suggesting the IEEE stuff
+instead (not as easy as I hoped). I am willing dust off my work, but
+for the sake of a small revision, let's agree not to propose this.
+
+Generics are another matter. The present schedule (N2154) is for only a
+4-year gap between standards. How about pushing for a longer gap, the
+inclusion of generics but not exceptions?
+
+John.
+
+_______________________________________________
+ukfortran mailing list
+https://lists.accu.org/mailman/listinfo/ukfortran
+
+
+_______________________________________________
+ukfortran mailing list
+https://lists.accu.org/mailman/listinfo/ukfortran
+
+
+
+================================================================================
+================================================================================
+================================================================================
+
+
+-------- Forwarded Message --------
+From: Salvatore Filippone <salvatore.filippone@cranfield.ac.uk>
+To: ukfortran@lists.accu.org <ukfortran@lists.accu.org>
+Subject: Re: [ukfortran] UK requirements for Fortran 202x
+Date: Tue, 21 May 2019 08:34:38 +0100
+
+From a user's perspective, I am currently forced to roll out my own
+poor-man's macros (implemented with a horrible bunch of sed/awk
+scripts; having neither the time nor the resources to do anything
+better right now, I  would not inflict them on anyone but myself).=20
+
+If macros are included in the standard, I have a path to get *some* of
+the things I need.=20
+I'd rather have that than wait for a full template solution that is
+unlikely to come about anytime soon (and I don't particularly like C++
+templates anyway); I am already stretched so  thin in defending my
+continued use of Fortran that I fear I'll reach breaking point in the
+very near future.=20
+
+Salvatore
+
+In Response to
+
+On Mon, 2019-05-20 at 16:16 +0100, John Reid wrote:
+ Dear all,
+=20
+ Anton Shterenlikht wrote:
+ > I don't have a strong opinion,
+ > but want to note a lack of progress
+ > on the 2 big features:
+ >=20
+ > >   US24. Generics / templates / macros / containers for generic
+ > >         programming. (m217: 18-281r1, uc (templates)), and (m218:
+ > > 18-154
+ > >         (macros)).
+=20
+ You meant 19-154. I have to say that I much prefer templates, as=20
+ proposed in 18-281r1. The macros seem very clunky (see the examples
+ in=20
+ 19-154).
+=20
+ > >   US25: Exceptions. Discussions continue on the J3 email list.
+ > > (m218:
+ > >         19-133r2)
+ >=20
+ > Even 18-281r1, passed with UC, is not much more than an idea.
+ > It passed with UC probably because there is no obligation
+ > there to implement anything.
+ >=20
+ > To me this means that there is really no agreement
+ > on what the facility should do, nevermind how it should
+ > be implemented. This is after a year of discussions.
+ >=20
+ > I think I've seen some dissenting opinions
+ > in J3 list (I think Tom Clune, NASA).
+20
+ No-one is speaking up for exceptions. I worked on these in the run-
+ up=20
+ to=20
+ F95. It was not easy and I ended up suggesting the IEEE stuff
+ instead=20
+ (not as easy as I hoped). I am willing dust off my work, but for the=20
+ sake of a small revision, let's agree not to propose this.
+=20
+ Generics are another matter. The present schedule (N2154) is for only
+ a=20
+ 4-year gap between standards. How about pushing for a longer gap,
+ the=20
+ inclusion of generics but not exceptions?
+=20
+ John.
+=20
+_______________________________________________
+ukfortran mailing list
+https://lists.accu.org/mailman/listinfo/ukfortran
+
+
+
+================================================================================
+================================================================================
+================================================================================
+
+
+-------- Forwarded Message --------
+From: "Brady, Christopher" <C.S.Brady@warwick.ac.uk>
+To: ukfortran@lists.accu.org <ukfortran@lists.accu.org>, FSG Members=20
+List <fortranmem@lists.bcs.org.uk>
+Subject: Re: [ukfortran] Generic programming, was RE:  UK requirements=20
+for Fortran 202x
+Date: Tue, 21 May 2019 07:49:29 +0000
+
+As a developer who works heavily in Fortran I actually think that
+macros would actually solve 80-90% of the problems that I face in
+developing Fortran. The main thing that would really speed up
+development is a standards compliant way of producing variations of a
+function for different types of parameters and different ranks of
+array. I actually think that it might be better to avoid anything even
+close to C++ templates since in academia at least it seems to have
+rather fragmented the language into people who write "modern" C++ and
+people who don't and that has been rather unhelpful in lots of ways.
+
+I'm a bit worried that unless there was already buy-in from compiler
+writers for a macro language it could easily end up as another F95-
+part3 since people will be reluctant to rely on an external tool but I
+think that from what Malcolm says it would be much better to push for
+that rather than trying to go for even a simple template approach.
+
+On a partially related note I think that Malcolm's idea for macros
+combined with the introduction of some equivalent of C casting/C++
+reinterpret_cast and a void pointer without the C interoperability
+rules would allow me to do everything that I've tried to do in the last
+year. I've not been on this list for long so I'm guessing that question
+has come up multiple times and been rejected for plenty of good reasons
+but there have definitely been times when something like that would
+have made my life a lot easier.
+
+Chris Brady
+Head of RSE
+University of Warwick
+
+ On 21 May 2019, at 06:09, Malcolm Cohen <malcolm@nag-j.co.jp> wrote:
+>=20
+> I can't post to the BCS list.  If someone who is a BCS member wants
+> to post my words there, be my guest.
+>=20
+> *****
+>=20
+> Templates are way too complicated.  This is not a small feature.  It
+> is bigger than our existing OO feature.  With macros, they have only
+> a very localised effect on the standard and similarly for
+> implementations.
+etc. etc.
+
+
+================================================================================
+================================================================================
+================================================================================
+
+
+-------- Forwarded Message --------
+From: Ian Chivers <ian.chivers@chiversandbryan.co.uk>
+To: 'John Reid' <John.Reid@stfc.ac.uk>, fortranmem@lists.bcs.org.uk,=20
+'ukfortran' <ukfortran@lists.accu.org>
+Subject: Re: [ukfortran] Fwd:  Generic programming, was RE: UK=20
+requirements for Fortran 202x
+Date: Wed, 22 May 2019 14:08:06 +0100
+
+One of my major concerns is compiler standard conformance.
+
+Here are some dates concerning standards conformance.
+
+Fortran 2003
+
+  Published Nov 2004
+
+  Conformance by most vendors by Dec 2018.
+
+Fortran 2008
+
+  Published Oct 2010
+
+  See attached pages taken from the December 2018 edition of
+  Fortran Forum.
+
+I don't think there is any point talking about the Fortran 2018
+standard.
+
+Macros would get my vote as a way of doing most of what=20
+Jane and I currently teach.=20
+
+We restrict what we teach to what is reasonably
+Well supported in compilers.
+
+The vendors need to be given time to catch up with the=20
+2008 standard, let alone the 2018 standard.=20
+
+Ian Chivers
+
+-----Original Message-----
+From: John Reid [mailto:John.Reid@stfc.ac.uk]=20
+Sent: 21 May 2019 15:33
+To: fortranmem@lists.bcs.org.uk; ukfortran
+Subject: Re: [ukfortran] Fwd: Generic programming, was RE: UK
+requirements for Fortran 202x
+
+Malcolm Cohen wrote:
+
+> > Templates are way too complicated.  This is not a small
+> > feature.  It=20
+> > is bigger than our existing OO feature.  With macros, they have
+> > only a=20
+> > very localised effect on the standard and similarly for
+> > implementations.
+> >=20
+> > For templates there is a whole parallel grammar needed, with 90%
+> > of=20
+> > the constraints deleted, as inside the template things have=20
+> > undiscernible type etc.  I am sure that virtually none of my=20
+> > colleagues on the standards committees have any realisation of the=20
+> > complications involved at the mere standards level.
+
+OK, you convince me. We have a very complicated situation now with the=20
+rules associated with types. I accept that getting everything right=20
+would be a huge task. Let's not ask for templates.
+
+> > Fortran 2003's grossly overambitious feature list has already done=20
+> > huge damage to Fortran standardisation.  A compiler vendor in
+> > private=20
+> > communication confided that they had no intention of conforming to
+> > the=20
+> > Fortran standard (they are missing tons of features already!).
+> >=20
+> > Templates would drive the final stake through the heart of Fortran=20
+> > standardisation.
+> >=20
+> > As project editor, I take the wording of the standard seriously.=20
+> >  Perhaps a majority on the committees would not care so much if
+> > the=20
+> > standard were contradictory ambiguous nonsense, on the grounds
+> > that=20
+> > "we all know what we mean", but it is not something I can accept.
+
+Here, here!
+
+I now support the wishes of others in this thread that have written in=20
+favour of macros.
+
+Cheers,
+
+John.
+
+
+================================================================================
+================================================================================
+================================================================================
+
+
+-------- Forwarded Message --------
+From: Anton Shterenlikht <ashterenli@cray.com>
+To: Ian Chivers <ian.chivers@chiversandbryan.co.uk>
+Cc: FSG Members List <fortranmem@lists.bcs.org.uk>, ukfortran <
+ukfortran@lists.accu.org>
+Subject: Re: [ukfortran] Fwd:  Generic programming, was RE: UK=20
+requirements for Fortran 202x
+Date: Wed, 22 May 2019 13:59:59 +0000
+
+> On 22 May 2019, at 14:08, Ian Chivers <
+> ian.chivers@chiversandbryan.co.uk> wrote:
+>=20
+> Macros would get my vote as a way of doing most of what=20
+> Jane and I currently teach.=20
+
+I looked through examples in 19-154 again.
+I'm still not convinced this is an improvement
+to what is currently achievable with a scripting
+language.
+I think the amount of thinking needed to write the logic
+of examples in Notes 6.3 and 6.4 is not smaller
+than with any existing scripting language.
+One can argue that the proposed MACRO is better than shell
+or python, or the other way round (fully integrated vs
+stand-alone, single large tool (processor) vs several smaller tools
+(pre-processor, processor, etc.) and so on).
+Fundamentally the complexity is still there, it just shifts
+from one place to another.
+As Malcolm mentions in the introduction:
+"it would be reasonable for a software tool to implement
+a small but useful subset of those capabilities,...".
+
+I might be underestimating the benefits of
+a scripting language fully integrated into the processor,
+Right now I cannot see them.
+
+In contrast, the example in 18-281r1 is very simple.
+Clearly Bill's proposal is only good for a very limited
+number of cases, but for those cases I think it does
+deliver much time-saving with minimal new syntax.
+
+My preference is still something along 18-281r1,
+rather than 19-154.
+
+I'm of course completely ignorant of the implementation
+costs of the 2 proposals.
+
+Anton
+
+
+================================================================================
+================================================================================
+================================================================================
+
+
+From: Paul Richard Thomas <paul.richard.thomas@gmail.com>
+To: Anton Shterenlikht <ashterenli@cray.com>
+Cc: FSG Members List <fortranmem@lists.bcs.org.uk>, ukfortran <
+ukfortran@lists.accu.org>
+Subject: Re: [ukfortran] Fwd: Generic programming, was RE: UK=20
+requirements for Fortran 202x
+Date: Wed, 22 May 2019 21:19:23 +0100
+
+Dear All,
+
+I had a stab at mapping out how to implement some of the "template"
+and generic type proposals and recoiled at some of the implications.
+Cost/Benefit tending to infinity, I am afraid, quite aside for some of
+the possible ramifications in bloat of the generated code and
+considerable inefficiency. Given that this is the case, the situation
+that Malcolm mentions of partial implementation across vendors and the
+resulting portability issues are absolutely inevitable.
+
+From what I took from Anton's survey (it was very useful, by the way)
+and that of Steve Lionel (likewise), basically the major requirement
+is that there be some compact way of generating modules or procedures
+that encompass any or all types for which the relevant operators and
+intrinsic functions exist. This, after all, is the starting point for
+C++ templates and is probably as far as most C++ users get. (See
+http://www.cplusplus.com/doc/oldtutorial/templates/ for example).
+However, implementing instantiation is a seriously heavy duty project
+that I just do not see taking off for most vendors.
+
+In conclusion, I support Malcolm's position totally. Vendors' efforts
+should be concentrating on getting to the end of the first decade of
+the 21st century, rather then attempting to compete with other
+languages in areas that are not "core business". The primary message
+that I took from Anton's survey is that users are obliged to find the
+lowest common denominator of "new" features that vendors claim to
+support in order to write portable code. Fixing this state of affairs
+must be the priority.
+
+(As an aside, I tried to implement PDTs for gfortran. This took a lot
+of work, which seems to have gone in entirely the wrong direction -
+see https://gcc.gnu.org/bugzilla/show_bug.cgi?id=3D82649 . The latter
+shows the need for some kind of PDT descriptor, which requires almost
+as much work as OOP and, 18 months after the bug was posted, I haven't
+been able to clear the decks of daytime work to return to.)
+
+Best regards
+
+Paul
